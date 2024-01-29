@@ -2,7 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
@@ -81,15 +81,6 @@ def main():
         for file in pdf_docs:
             if file.endswith('.pdf'):
                 st.write(f" * :page_facing_up: {file}")
-        # with st.spinner("Processing your documents..."):
-        #     print("####### loaded_chunks started", datetime.now())
-        #     loaded_chunks = load_chunks('pdfs/chunks.json')
-        #     print("####### loaded_chunks Finished", datetime.now())
-        #     vectorstore = get_vectorstore(loaded_chunks)
-        #     print("######### vectore chuncks finished ", datetime.now())
-        #     # create conversation chain
-        #     st.session_state.conversation = get_conversation_chain(
-        #         vectorstore)
 
 
 if __name__ == '__main__':
